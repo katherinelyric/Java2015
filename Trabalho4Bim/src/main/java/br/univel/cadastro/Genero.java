@@ -2,7 +2,7 @@ package br.univel.cadastro;
 
 public enum Genero {
 	Fem ("Feminino"),//
-	Masc ("Masculino"), //
+	Masc ("Masculino"); 
 	
 	private String gen;
 	
