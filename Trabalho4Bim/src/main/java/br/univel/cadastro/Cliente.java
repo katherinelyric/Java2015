@@ -8,6 +8,11 @@ public class Cliente {
 	private String tel;
 	private String cidade;
 	private String email;
+	private Uf uf;
+	private Genero gen;
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -44,7 +49,6 @@ public class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	
 	
 
