@@ -1,5 +1,9 @@
 package br.univel.cadastro;
-
+/**
+ * 
+ * @author Danii
+ *
+ */
 public enum Genero {
 	Fem ("Feminino"),//
 	Masc ("Masculino"); 

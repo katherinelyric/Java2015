@@ -1,5 +1,9 @@
 package br.univel.cadastro;
-
+/**
+ * 
+ * @author Danii
+ *
+ */
 public enum Uf {
 	PR("Paraná"), //
 	RJ("Rio de Janeiro"), //

@@ -1,5 +1,9 @@
 package br.univel.tela;
-
+/**
+ * 
+ * @author Danii
+ *
+ */
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -8,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JMenu;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaPrincipal extends JFrame {
 
@@ -39,8 +46,19 @@ public class TelaPrincipal extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenuItem menuItem = new JMenuItem("New menu item");
-		menuBar.add(menuItem);
+		JMenu mnCadastro = new JMenu("Cadastro");
+		menuBar.add(mnCadastro);
+		
+		JMenuItem mntmCliente = new JMenuItem("Cliente");
+		mntmCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				telaCliente();
+			}
+		});
+		mnCadastro.add(mntmCliente);
+		
+		JMenuItem mntmUsuario = new JMenuItem("Usuario");
+		mnCadastro.add(mntmUsuario);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -50,4 +68,8 @@ public class TelaPrincipal extends JFrame {
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 	}
 
+	
+	private void telaCliente() {
+		
+	}
 }
