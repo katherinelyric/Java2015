@@ -13,12 +13,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
+import javax.swing.JTabbedPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
+	private JTabbedPane tabbedPane;
+	
 
 	/**
 	 * Launch the application.
@@ -41,7 +45,7 @@ public class TelaPrincipal extends JFrame {
 	 */
 	public TelaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 591, 429);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -69,16 +73,29 @@ public class TelaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.SOUTH);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
 	}
 
 	
 	private void telaCliente() {
+		ScCadCliente cadcliente = new ScCadCliente();
+		//cadcliente.setCloseAction(e -> tabbedPane.remove(cadcliente));
+		ActionListener action = new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.remove(cadcliente);
+				
+			}
+		};
+		cadcliente.setCloseAction(action);
+		tabbedPane.addTab("Cadastro de Clientes", cadcliente);
 		
 	}
 	
 	private void telaUser() {
+		
 		
 		
 	}

@@ -1,6 +1,7 @@
 package br.univel.tela;
 
 import java.awt.BorderLayout;
+import javax.swing.JPanel;
 
 /**
  * 

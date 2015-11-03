@@ -5,19 +5,30 @@ package br.univel.tela;
  *
  */
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
+
 import javax.swing.JLabel;
+
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+
 import javax.swing.JButton;
+
 import java.awt.Insets;
 import java.awt.Color;
+import java.awt.event.ActionListener;
 
 public abstract class Moldura extends JPanel {
 
+	private JButton btnFechar;
 	
 	protected abstract void instCadastro();
+	
+	public void setCloseAction(ActionListener action){
+		btnFechar.addActionListener(action);
+	}
 	
 	/**
 	 * Create the panel.
@@ -47,7 +58,7 @@ public abstract class Moldura extends JPanel {
 		gbc_lblCadastros.gridy = 0;
 		panel.add(lblCadastros, gbc_lblCadastros);
 		
-		JButton btnFechar = new JButton("Fechar");
+		btnFechar = new JButton("Fechar");
 		GridBagConstraints gbc_btnFechar = new GridBagConstraints();
 		gbc_btnFechar.gridwidth = 2;
 		gbc_btnFechar.anchor = GridBagConstraints.EAST;
