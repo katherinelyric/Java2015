@@ -58,6 +58,11 @@ public class TelaPrincipal extends JFrame {
 		mnCadastro.add(mntmCliente);
 		
 		JMenuItem mntmUsuario = new JMenuItem("Usuario");
+		mntmUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				telaUser();
+			}
+		});
 		mnCadastro.add(mntmUsuario);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -70,6 +75,11 @@ public class TelaPrincipal extends JFrame {
 
 	
 	private void telaCliente() {
+		
+	}
+	
+	private void telaUser() {
+		
 		
 	}
 }
