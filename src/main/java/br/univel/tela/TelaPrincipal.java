@@ -10,6 +10,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JComponent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
@@ -17,6 +18,9 @@ import javax.swing.JTabbedPane;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.security.KeyStore.Entry;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TelaPrincipal extends JFrame {
 
@@ -95,8 +99,19 @@ public class TelaPrincipal extends JFrame {
 	}
 	
 	private void telaUser() {
-		
-		
+		ScCadUser caduser = new ScCadUser();
+		ActionListener action = new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tabbedPane.remove(caduser);
+				
+			}
+		};
+		caduser.setCloseAction(action);
+		tabbedPane.addTab("Cadastro de Usuario", caduser);
 		
 	}
+	
 }
+
