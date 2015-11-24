@@ -49,7 +49,7 @@ public class TelaPrincipal extends JFrame {
 	 */
 	public TelaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 591, 429);
+		setBounds(100, 100, 714, 511);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);

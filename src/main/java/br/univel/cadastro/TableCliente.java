@@ -24,14 +24,56 @@ public class TableCliente extends AbstractTableModel {
 
 	@Override
 	public int getRowCount() {
-		
-		return 0;
+		return lcliente.size();
+	}
+
+	
+	
+	@Override
+	public String getColumnName(int arg0) {
+		switch (arg0) {
+        case 0:
+            return "ID";
+        case 1:
+            return "Nome";
+        case 2:
+            return "Telefone";
+        case 3:
+            return "Endereço";
+        case 4:
+            return "Cidade";
+        case 5:
+            return "Email";
+        default :
+            return null;
+		}
 	}
 
 	@Override
 	public Object getValueAt(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return null;
+       Integer tab = 0;
+       
+       if(tab == 0){
+    	  tab = new Integer(arg0);
+    	  cl = (Cliente) lcliente.get(arg0);
+       }
+		switch (arg0) {
+        case 0:
+            return cl.getId();
+        case 1:
+            return cl.getNome();
+        case 2:
+            return cl.getTel();
+        case 3:
+            return cl.getEnd();
+        case 4:
+            return cl.getCidade();
+        case 5:
+            return cl.getEmail();
+        default :
+            return null;
+		}
+
 	}
 
 }
