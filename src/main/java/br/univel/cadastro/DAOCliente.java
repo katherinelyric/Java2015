@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
@@ -22,16 +24,28 @@ public class DAOCliente {
 		conexao = (Connection) DriverManager.getConnection(url, user, pass);
 		
 	}
-   
-	
-	public void create(DAOCliente cli) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	
 	public void disconnect() throws SQLException {
 		conexao.close();
+		
+	}
+	
+	public void create(Cliente cli) throws SQLException {
+		Conectar();
+		
+		String sql = "INSERT INTO CLIENTE(ID,NAME,TELEFONE,ENDERECO,CIDADE,EMAIL";
+		PreparedStatement stt = (PreparedStatement) conexao.prepareStatement(sql);
+		stt.setInt(1, cli.getId());
+		stt.setString(2, cli.getNome());
+		stt.setString(3, cli.getTel());
+		stt.setString(3, cli.getEnd());
+		stt.setString(5, cli.getCidade());
+		stt.setString(6, cli.getEmail());
+		
+		int upd = stt.executeUpdate();		
+		disconnect();
+		stt.close();
+		System.out.println(upd + "Registro adicionado com sucesso");
 		
 	}
 	
@@ -55,6 +69,7 @@ public class DAOCliente {
 						cl.setEnd(result.getString("ENDERECO"));
 						cl.setCidade(result.getString("CIDADE"));
 						cl.setEmail(result.getString("EMAIL"));
+						//TA FALTANDO A UF 
 						clista.add(cl);
 						
 					}
@@ -73,24 +88,35 @@ public class DAOCliente {
 		}
 
 
-	public void delete(DAOCliente cli) throws SQLException {
+	public void delete(Cliente cli) throws SQLException {
 		Conectar();
-		String sql = "DELETE FROM CONTATO WHERE ID = ?";
-		try(PreparedStatement ps = (PreparedStatement) conexao.prepareStatement(sql)){
-			ps.setInt(1,con);
-		}
+		String sql = "DELETE FROM CLIENTE WHERE ID = ?";
 		
+		try(PreparedStatement ps = (PreparedStatement) conexao.prepareStatement(sql)){
+			ps.setInt(1, cli.getId());
+			int excluindo = ps.executeUpdate();
+			System.out.println(excluindo + "Registro "+ ps + "excluído com sucesso");
+		}
+		JOptionPane.showMessageDialog(null, "Seleção excluída");
+		disconnect();
 	}
 
 
 	public void update() throws SQLException {
-		// TODO Auto-generated method stub
+		Conectar();
+		String sql = "UPDATE CLIENTE SET ID = ?, NOME = ?, WHERE ID = ?";
+		disconnect();
 		
 	}
 
 	public void delAll() throws SQLException {
-		// TODO Auto-generated method stub
-		
+		Conectar();
+		String str = "DELETE FROM CONTATO";
+		try(PreparedStatement ps = (PreparedStatement) conexao.prepareStatement(str)){
+			int exl = ps.executeUpdate();
+			System.out.println(exl + "Todos os registros foram excluídos do banco.");
+		}
+		disconnect();
 	}
 
 
