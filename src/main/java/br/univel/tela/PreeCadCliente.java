@@ -41,6 +41,7 @@ public class PreeCadCliente extends JPanel {
 	 * Create the panel.
 	 */
 	public PreeCadCliente() {
+		
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 87, 21, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -194,14 +195,14 @@ public class PreeCadCliente extends JPanel {
 				cli.setEmail(textEmail.getText());
 				//ta faltando uf sexo
 				
-				JOptionPane.showMessageDialog(rootPane, "Cliente adicionado");
+			//	JOptionPane.showMessageDialog(rootPane, "Cliente adicionado");
 				
 				try{
 					daoc.create(cli);
 					
-				}catch (SQLException e){
+				}catch (SQLException ex){
 					
-					e.printStackTrace();
+					ex.printStackTrace();
 				}
 			}
 		});
@@ -251,6 +252,8 @@ public class PreeCadCliente extends JPanel {
 		
 		tableCliente = new JTable();
 		scrollPane.setViewportView(tableCliente);
+		
+		
 
 	}
 

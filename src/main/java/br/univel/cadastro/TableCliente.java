@@ -57,6 +57,7 @@ public class TableCliente extends AbstractTableModel {
     	  tab = new Integer(arg0);
     	  cl = (Cliente) lcliente.get(arg0);
        }
+       
 		switch (arg0) {
         case 0:
             return cl.getId();

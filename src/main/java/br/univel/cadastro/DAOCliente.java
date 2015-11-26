@@ -1,20 +1,19 @@
 package br.univel.cadastro;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
 
 public class DAOCliente {
-	private Connection conexao;
-	
+	protected Connection conexao;
 	
 	public void Conectar() throws SQLException{
 		
